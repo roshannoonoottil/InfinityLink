@@ -1,4 +1,4 @@
-import urlModel from "../model/urlModel";
+import urlModel from "../model/urlModel.js";
 import { nanoid } from "nanoid";
 
 const BASE_URL = 'http://localhost:3000';

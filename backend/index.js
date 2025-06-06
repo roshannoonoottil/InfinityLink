@@ -1,5 +1,5 @@
 import express from 'express';
-import { connectDB } from './models/Url.js';
+import { connectDB } from './server/model/urlModel.js';
 import dotenv from 'dotenv';
 import urlRouter from './router/urlRoutes.js';
 import cors from 'cors';
@@ -34,6 +34,6 @@ app.use(express.json())
 connectDB();
 
 
-app.use('/api', urlRouter);
+app.use('/', urlRouter);
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
