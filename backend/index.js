@@ -14,7 +14,7 @@ app.use(
         origin: (origin, callback) => {
             const allowedOrigins = [
                 // "https://", // ✅ Deployed frontend
-                "http://localhost:3000", // ✅ Local development frontend
+                "http://localhost:5173", // ✅ Local development frontend
             ];
             if (!origin || allowedOrigins.includes(origin)) {
                 callback(null, true);
