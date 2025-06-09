@@ -30,15 +30,15 @@ app.use(
 );
 
 
-// // Health check route
-// app.get('/api/health', (req, res) => {
-//   res.status(200).json({ status: "Server is running!" });
-// });
+// Health check route
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: "Server is running!" });
+});
 
-// // Keep the server alive by pinging itself every 5 minutes
-// setInterval(() => {
-//   fetch("https://infinityblog.onrender.com/api/health").catch(() => {});
-// }, 300000); // 5 minutes (300,000 ms)
+// Keep the server alive by pinging itself every 5 minutes
+setInterval(() => {
+  fetch("https://il-ang6.onrender.com/api/health").catch(() => {});
+}, 300000); // 5 minutes (300,000 ms)
 
 app.use(express.json())
 
