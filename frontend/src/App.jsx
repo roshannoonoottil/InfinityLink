@@ -110,7 +110,6 @@ const handleShorten = async () => {
         <QRCode value={shortUrl} size={128} />
       </div>
       </div>
-
     {/* Extra spacing */}
     <div className="h-32"></div>
 
