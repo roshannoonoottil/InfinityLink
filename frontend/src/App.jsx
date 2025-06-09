@@ -5,7 +5,7 @@ import axios from 'axios';
 import { FaRegCopy } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { QRCode } from 'qrcode.react';
+import QRCode from 'qrcode.react';
 import './App.css';
 
 function App() {
