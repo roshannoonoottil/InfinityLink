@@ -13,7 +13,7 @@ app.use(
     cors({
         origin: (origin, callback) => {
             const allowedOrigins = [
-                // "https://", // ✅ Deployed frontend
+                "https://infinity-link.vercel.app", // ✅ Deployed frontend
                 "http://localhost:5173", // ✅ Local development frontend
             ];
             if (!origin || allowedOrigins.includes(origin)) {

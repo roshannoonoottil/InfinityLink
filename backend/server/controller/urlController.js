@@ -1,7 +1,7 @@
 import urlModel from "../model/urlModel.js";
 import { nanoid } from "nanoid";
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://infinitylink.onrender.com';
 
 const shortenUrl = async (req, res) => {
     const { originalUrl } = req.body;
