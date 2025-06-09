@@ -5,6 +5,7 @@ import axios from 'axios';
 import { FaRegCopy } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { QRCode } from 'qrcode.react';
 import './App.css';
 
 function App() {
@@ -104,6 +105,10 @@ const handleShorten = async () => {
           )}
         </div>
       )}
+        {/* QR Code display */}
+      <div className="mt-6 flex justify-center">
+        <QRCode value={shortUrl} size={128} />
+      </div>
       </div>
 
     {/* Extra spacing */}
