@@ -21,7 +21,7 @@ function App() {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('https://il-ang6.onrender.com/shorten', {
+      const response = await axios.post('https://il-vzak.onrender.com/shorten', {
         originalUrl,
       });
 

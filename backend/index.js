@@ -37,7 +37,7 @@ app.get('/api/health', (req, res) => {
 
 // Keep the server alive by pinging itself every 5 minutes
 setInterval(() => {
-  fetch("https://il-ang6.onrender.com/api/health").catch(() => {});
+  fetch("https://il-vzak.onrender.com/api/health").catch(() => {});
 }, 300000); // 5 minutes (300,000 ms)
 
 app.use(express.json())

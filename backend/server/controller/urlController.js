@@ -1,7 +1,7 @@
 import urlModel from "../model/urlModel.js";
 import { nanoid } from "nanoid";
 
-const BASE_URL = 'https://il-ang6.onrender.com';
+const BASE_URL = 'https://il-vzak.onrender.com';
 
 const shortenUrl = async (req, res) => {
     const { originalUrl } = req.body;
