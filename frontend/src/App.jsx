@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import axios from 'axios';
+import { QRCodeSVG } from 'qrcode.react';
 import { FaRegCopy } from 'react-icons/fa';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import QRCode from 'qrcode.react';
 import './App.css';
 
 function App() {
@@ -80,6 +80,7 @@ const handleShorten = async () => {
       </button>
 
     {shortUrl && (
+          <>
         <div className="mt-6 p-4 bg-[#CBE957]/10 text-[#CBE957] rounded-lg text-center break-words relative">
           Short URL:&nbsp;
           <a href={shortUrl} target="_blank" rel="noopener noreferrer" className="underline font-medium">
@@ -104,10 +105,15 @@ const handleShorten = async () => {
             </p>
           )}
         </div>
+         {/* QR Code display */}
+      <div className="mt-6 flex justify-center">
+        <QRCodeSVG value={shortUrl} size={128} />
+      </div>
+      </>
       )}
         {/* QR Code display */}
       <div className="mt-6 flex justify-center">
-        <QRCode value={shortUrl} size={128} />
+        <QRCodeSVG value={shortUrl} size={128} />
       </div>
       </div>
     {/* Extra spacing */}
