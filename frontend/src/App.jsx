@@ -81,23 +81,24 @@ const handleShorten = async () => {
 
     {shortUrl && (
           <>
-        <div className="mt-6 p-4 bg-[#CBE957]/10 text-[#CBE957] rounded-lg text-center break-words relative">
-          Short URL:&nbsp;
-          <a href={shortUrl} target="_blank" rel="noopener noreferrer" className="underline font-medium">
-            {shortUrl}
-          </a>
+            <div className="mt-6 p-4 bg-[#CBE957]/10 text-[#CBE957] rounded-lg text-center break-words relative">
+      Short URL:&nbsp;
+      <a href={shortUrl} target="_blank" rel="noopener noreferrer" 
+        className="underline font-medium pr-10"> {/* Added pr-10 (padding-right: 2.5rem) */}
+        {shortUrl}
+      </a>
 
-          <button
-            onClick={() => {
-              navigator.clipboard.writeText(shortUrl);
-              setCopied(true);
-              setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
-            }}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#CBE957] hover:text-[#d9fa70] transition text-xl"
-            title="Copy URL"
-          >
-            <FaRegCopy />
-          </button>
+      <button
+        onClick={() => {
+          navigator.clipboard.writeText(shortUrl);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000); // Reset after 2 seconds
+        }}
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#CBE957] hover:text-[#d9fa70] transition text-xl"
+        title="Copy URL"
+      >
+        <FaRegCopy />
+      </button>
 
           {copied && (
             <p className="text-sm text-green-400 mt-2 absolute bottom-0 right-4 transform translate-y-full">
