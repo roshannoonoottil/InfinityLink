@@ -21,7 +21,7 @@ function App() {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('http://localhost:3000/shorten', {
+      const response = await axios.post('https://infinitylink.onrender.com/shorten', {
         originalUrl,
       });
 
