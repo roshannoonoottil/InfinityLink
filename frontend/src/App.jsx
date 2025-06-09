@@ -111,10 +111,6 @@ const handleShorten = async () => {
       </div>
       </>
       )}
-        {/* QR Code display */}
-      <div className="mt-6 flex justify-center">
-        <QRCodeSVG value={shortUrl} size={128} />
-      </div>
       </div>
     {/* Extra spacing */}
     <div className="h-32"></div>
