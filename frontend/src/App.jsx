@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { FaRegCopy } from 'react-icons/fa';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 function App() {
@@ -15,26 +16,34 @@ function App() {
 
   
 
-  const handleShorten = async () => {
-    if (!originalUrl) return;
+const handleShorten = async () => {
+  if (!originalUrl) {
+    toast.error('Please enter a URL');
+    return;
+  }
 
-    setLoading(true);
-    setError('');
-    try {
-      const response = await axios.post('https://il-vzak.onrender.com/shorten', {
-        originalUrl,
-      });
+  setLoading(true);
+  setShortUrl('');
+  try {
+    const response = await axios.post('https://il-vzak.onrender.com/shorten', {
+      originalUrl,
+    });
 
-      console.log(response.data);
+    setShortUrl(response.data.shortUrl);
+    toast.success('URL shortened successfully!');
+  } catch (err) {
+    console.error(err);
 
-      setShortUrl(`${response.data.shortUrl}`);
-    } catch (err) {
-      console.error(err);
-      setError('Failed to shorten URL');
-    } finally {
-      setLoading(false);
+    if (err.response && err.response.data && err.response.data.message) {
+      toast.error(err.response.data.message);
+    } else {
+      toast.error('Failed to shorten URL');
     }
-  };
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
   <div className="min-h-screen flex flex-col items-center justify-center bg-[#313743] relative overflow-hidden p-4">
@@ -69,10 +78,6 @@ function App() {
         {loading ? 'Shortening...' : 'Shorten URL'}
       </button>
 
-      {error && (
-        <p className="text-red-400 mt-4 text-center">{error}</p>
-      )}
-
     {shortUrl && (
         <div className="mt-6 p-4 bg-[#CBE957]/10 text-[#CBE957] rounded-lg text-center break-words relative">
           Short URL:&nbsp;
@@ -103,6 +108,19 @@ function App() {
 
     {/* Extra spacing */}
     <div className="h-32"></div>
+
+    <ToastContainer 
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
   </div>
   );
 }
